@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { WhatsAppBubble } from "@/components/ui/WhatsAppBubble";
@@ -15,6 +14,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-hidden">
         {children}
         <WhatsAppBubble />

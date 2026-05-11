@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
 
 @theme {
   --color-primary:              #0BABA6;
@@ -23,7 +22,8 @@
 
 /* ── Display font class ──────────────────────────────────────── */
 .font-display {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
 }
 
 /* ── Keyframes ────────────────────────────────────────────────── */
