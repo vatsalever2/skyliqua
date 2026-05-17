@@ -30,7 +30,7 @@ export function WhySkyliqua() {
     <section style={{ background:"#F8F7F4" }}>
 
       {/* Stats band */}
-      <div style={{ background:"#0C0F0D" }}>
+      <div style={{ background:"#081312" }}>
         <div className="w-full max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-16 py-12 sm:py-14 lg:py-16">
           {/* 2-col mobile, 4-col desktop */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-sm overflow-hidden"
@@ -41,8 +41,8 @@ export function WhySkyliqua() {
               { to:99,  suffix:".9%", label:"Pathogen Eliminated",  sub:"RO + UV dual barrier"    },
               { to:100, suffix:"%",   label:"Service Commitment",   sub:"lifetime support"        },
             ].map(s => (
-              <div key={s.label} className="text-center py-8 sm:py-10 px-4 sm:px-6" style={{ background:"#0C0F0D" }}>
-                <div className="font-display font-bold leading-none mb-2" style={{ fontSize:"clamp(2rem,4vw,3.4rem)", color:"#0BABA6" }}>
+              <div key={s.label} className="text-center py-8 sm:py-10 px-4 sm:px-6" style={{ background:"#081312" }}>
+                <div className="font-display font-bold leading-none mb-2" style={{ fontSize:"clamp(2rem,4vw,3.4rem)", color:"#A5CBC1" }}>
                   <Counter to={s.to} suffix={s.suffix} />
                 </div>
                 <div className="text-xs sm:text-sm font-semibold mb-1" style={{ color:"rgba(255,255,255,0.72)" }}>{s.label}</div>
@@ -59,20 +59,20 @@ export function WhySkyliqua() {
 
           {/* Left */}
           <motion.div initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true, margin:"-60px" }} transition={{ duration:0.65, ease:"easeOut" }}>
-            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#0BABA6" }}>Our Promise</p>
+            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#22615F" }}>Our Promise</p>
             <h2 className="font-display m-0 mb-5 leading-tight" style={{ fontSize:"clamp(1.8rem,3.5vw,3rem)", fontWeight:700, color:"#0C0F0D", letterSpacing:"-0.02em" }}>
-              Built for Life. <em className="font-normal" style={{ fontStyle:"italic", color:"#0BABA6" }}>Backed for Life.</em>
+              Built for Life. <em className="font-normal" style={{ fontStyle:"italic", color:"#22615F" }}>Backed for Life.</em>
             </h2>
             <p className="text-sm sm:text-base leading-relaxed font-light mb-8" style={{ color:"rgba(12,15,13,0.5)", maxWidth:"420px" }}>
               Skyliqua was founded on a single conviction: your family deserves water that doesn't merely meet a
               safety standard — it surpasses it, in every stage, in every sip.
             </p>
-            <blockquote className="m-0 pl-5" style={{ borderLeft:"2px solid #0BABA6" }}>
+            <blockquote className="m-0 pl-5" style={{ borderLeft:"2px solid #AC885B" }}>
               <p className="text-sm sm:text-base leading-relaxed mb-3" style={{ fontStyle:"italic", color:"rgba(12,15,13,0.58)" }}>
                 "We don't just purify water. We care for the people who drink it —
                 and the families whose health depends on it."
               </p>
-              <cite className="text-[10px] font-bold tracking-[0.16em] uppercase not-italic" style={{ color:"#0BABA6" }}>
+              <cite className="text-[10px] font-bold tracking-[0.16em] uppercase not-italic" style={{ color:"#AC885B" }}>
                 — The Skyliqua Team
               </cite>
             </blockquote>
@@ -86,8 +86,8 @@ export function WhySkyliqua() {
                 className="flex items-start gap-4 sm:gap-5 py-6 sm:py-7"
                 style={{ borderTop:i>0?"1px solid rgba(12,15,13,0.07)":"none" }}>
                 <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background:"rgba(11,171,166,0.08)" }}>
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ background:"#0BABA6" }} />
+                  style={{ background:"rgba(34,97,95,0.08)" }}>
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ background:"#22615F" }} />
                 </div>
                 <div>
                   <div className="text-sm sm:text-[0.9375rem] font-semibold mb-1.5" style={{ color:"#0C0F0D" }}>{r.title}</div>

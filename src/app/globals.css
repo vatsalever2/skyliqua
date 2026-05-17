@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary:              #0BABA6;
+  --color-primary:              #22615F;
   --color-primary-foreground:   #ffffff;
-  --color-gold:                 #C8A84B;
-  --color-gold-light:           #E4CC80;
-  --color-secondary:            #C8A84B;
-  --color-secondary-foreground: #ffffff;
+  --color-gold:                 #AC885B;
+  --color-gold-light:           #E1C06D;
+  --color-secondary:            #A5CBC1;
+  --color-secondary-foreground: #0C0F0D;
   --color-background:           #F8F7F4;
   --color-foreground:           #0C0F0D;
   --color-muted:                #7A8480;
 
-  /* Outfit as the default sans */
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  /* Montserrat as the default sans */
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -22,8 +22,8 @@
 
 /* ── Display font class ──────────────────────────────────────── */
 .font-display {
-  font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif;
-  letter-spacing: -0.03em;
+  font-family: 'Playfair Display', ui-serif, Georgia, serif;
+  letter-spacing: -0.01em;
 }
 
 /* ── Keyframes ────────────────────────────────────────────────── */
@@ -42,7 +42,7 @@ html  { scroll-behavior: smooth; }
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -50,6 +50,6 @@ body {
 
 ::-webkit-scrollbar       { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #0BABA6; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #22615F; border-radius: 2px; }
 
-::selection { background: rgba(11,171,166,0.14); }
+::selection { background: rgba(34,97,95,0.14); }

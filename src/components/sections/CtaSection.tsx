@@ -41,12 +41,12 @@ function CtaFormContent() {
           className="flex flex-col md:flex-row"
         >
           {/* Left Side: Copy */}
-          <div style={{ flex: 1, background: "#0C0F0D", color: "#ffffff", position: "relative" }} className="md:p-16 p-8">
+          <div style={{ flex: 1, background: "#081312", color: "#ffffff", position: "relative" }} className="md:p-16 p-8">
             <div className="mb-8">
               <img src="/assets/brand/skyliqua-logo-clean.png" alt="Skyliqua" style={{ height: "28px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.8 }} />
             </div>
             <h2 style={{ fontWeight: 600, color: "#ffffff", marginBottom: "24px", letterSpacing: "-0.02em", lineHeight: 1.1, position: "relative", zIndex: 1 }} className="text-3xl md:text-5xl">
-              Book Your Free <br/><span style={{ color: "#0BABA6" }}>Home Consultation</span>
+              Book Your Free <br/><span style={{ color: "#AC885B" }}>Home Consultation</span>
             </h2>
             <p style={{ color: "rgba(255,255,255,0.7)", marginBottom: "40px", lineHeight: 1.6, position: "relative", zIndex: 1 }} className="text-base md:text-lg">
               Experience the Puresense difference in your own home. Our experts will test your water quality and recommend the perfect Skyliqua system.
@@ -59,8 +59,8 @@ function CtaFormContent() {
                 "No-Obligation Quotation"
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "center", gap: "16px", color: "rgba(255,255,255,0.85)" }} className="text-sm md:text-base">
-                  <div style={{ width: "24px", height: "24px", borderRadius: "4px", background: "rgba(11,171,166,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0BABA6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <div style={{ width: "24px", height: "24px", borderRadius: "4px", background: "rgba(172,136,91,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#AC885B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                   </div>
@@ -81,7 +81,7 @@ function CtaFormContent() {
                 <input
                   type="text" id="name" required
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#f8f7f4", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #0BABA6"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #22615F"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#f8f7f4"; }}
                   placeholder="Rahul Sharma"
                 />
@@ -92,7 +92,7 @@ function CtaFormContent() {
                 <input
                   type="tel" id="phone" required
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#f8f7f4", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #0BABA6"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #22615F"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#f8f7f4"; }}
                   placeholder="+91 98765 43210"
                 />
@@ -103,7 +103,7 @@ function CtaFormContent() {
                 <input
                   type="text" id="city" required
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#f8f7f4", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #0BABA6"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #22615F"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#f8f7f4"; }}
                   placeholder="e.g. Mumbai"
                 />
@@ -114,7 +114,7 @@ function CtaFormContent() {
                 <select
                   id="model" value={selectedModel} onChange={e => setSelectedModel(e.target.value)}
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#f8f7f4", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease", cursor: "pointer" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #0BABA6"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #22615F"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#f8f7f4"; }}
                 >
                   <option value="unspecified">Not sure yet / Need consultation</option>
@@ -131,7 +131,7 @@ function CtaFormContent() {
                 type="submit"
                 disabled={isSubmitting}
                 style={{
-                  width: "100%", padding: "16px", borderRadius: "4px", background: "#0BABA6", color: "#ffffff", fontSize: "1rem", fontWeight: 600, cursor: isSubmitting ? "not-allowed" : "pointer", border: "none", outline: "none", marginTop: "8px", transition: "all 0.2s ease", display: "flex", justifyContent: "center", alignItems: "center", gap: "10px"
+                  width: "100%", padding: "16px", borderRadius: "4px", background: "#22615F", color: "#ffffff", fontSize: "1rem", fontWeight: 600, cursor: isSubmitting ? "not-allowed" : "pointer", border: "none", outline: "none", marginTop: "8px", transition: "all 0.2s ease", display: "flex", justifyContent: "center", alignItems: "center", gap: "10px"
                 }}
                 onMouseEnter={e => { if(!isSubmitting) { e.currentTarget.style.opacity = "0.9"; } }}
                 onMouseLeave={e => { if(!isSubmitting) { e.currentTarget.style.opacity = "1"; } }}

@@ -26,7 +26,7 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         padding: scrolled ? "12px 0" : "18px 0",
-        background: scrolled ? "rgba(12,15,13,0.96)" : "#0C0F0D",
+        background: scrolled ? "rgba(8,19,18,0.96)" : "#06100F",
         backdropFilter: scrolled ? "blur(18px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "1px solid transparent",
         boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.2)" : "none",
@@ -53,7 +53,7 @@ export function Navbar() {
           ))}
           <a href="#contact"
             className="px-5 py-2.5 rounded-sm text-white text-[13px] font-semibold tracking-wide transition-all duration-200 hover:opacity-90 active:scale-95"
-            style={{ background: "#0BABA6" }}>
+            style={{ background: "#22615F" }}>
             Get Yours Now
           </a>
         </nav>
@@ -84,7 +84,7 @@ export function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             className="md:hidden absolute top-full left-0 right-0 border-b"
-            style={{ background: "rgba(12,15,13,0.98)", backdropFilter: "blur(20px)", borderColor: "rgba(255,255,255,0.05)" }}
+            style={{ background: "rgba(8,19,18,0.98)", backdropFilter: "blur(20px)", borderColor: "rgba(255,255,255,0.05)" }}
           >
             <div className="px-5 py-4 flex flex-col gap-1">
               {LINKS.map((l) => (
@@ -99,7 +99,7 @@ export function Navbar() {
               ))}
                 <a href="#contact" onClick={() => setOpen(false)}
                 className="mt-2 w-full py-4 text-center rounded-sm text-white font-semibold text-[15px] tracking-wide"
-                style={{ background: "#0BABA6" }}>
+                style={{ background: "#22615F" }}>
                 Get Yours Now
               </a>
             </div>

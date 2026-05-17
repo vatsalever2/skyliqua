@@ -29,7 +29,7 @@ export function FeatureGrid() {
       <div className="w-full max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once:true, margin:"-60px" }}>
-            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#0BABA6" }}>Feature 01 · Copper Enrichment</p>
+            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#22615F" }}>Feature 01 · Copper Enrichment</p>
             <h2 className="font-display m-0 mb-5 leading-tight" style={{ fontSize:"clamp(1.8rem,3.5vw,3rem)", fontWeight:700, color:"#0C0F0D", letterSpacing:"-0.02em" }}>
               Ancient Wisdom,<br /><em className="font-normal" style={{ fontStyle:"italic" }}>Modern Precision.</em>
             </h2>
@@ -40,31 +40,31 @@ export function FeatureGrid() {
             <div className="flex flex-wrap gap-2 sm:gap-2.5">
               {["Antimicrobial","Supports Immunity","Aids Digestion","Thyroid Health"].map(tag => (
                 <span key={tag} className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[12px] font-semibold"
-                  style={{ color:"#0BABA6", background:"rgba(11,171,166,0.08)", border:"1px solid rgba(11,171,166,0.14)" }}>{tag}</span>
+                  style={{ color:"#22615F", background:"rgba(34,97,95,0.08)", border:"1px solid rgba(34,97,95,0.14)" }}>{tag}</span>
               ))}
             </div>
           </motion.div>
           <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once:true, margin:"-60px" }}>
             <ProductPanel src="/assets/products/prime-removed.png" alt="Skyliqua Prime"
-              oval="radial-gradient(ellipse 80% 70% at 50% 45%, rgba(11,171,166,0.10) 0%, rgba(225,243,241,0.9) 55%, #E8F2F0 100%)"
+              oval="radial-gradient(ellipse 80% 70% at 50% 45%, rgba(34,97,95,0.10) 0%, rgba(225,243,241,0.9) 55%, #E8F2F0 100%)"
               shadow="drop-shadow(0 24px 48px rgba(0,0,0,0.10))" />
           </motion.div>
         </div>
       </div>
 
       {/* ── ROW 2: Alkaline ────────────────────────────────────── */}
-      <div style={{ background:"#0C0F0D" }}>
+      <div style={{ background:"#081312" }}>
         <div className="w-full max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Image first on mobile, second on desktop */}
             <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once:true, margin:"-60px" }}
               className="lg:order-first">
               <ProductPanel src="/assets/products/zen-removed.png" alt="Skyliqua Zen"
-                oval="radial-gradient(ellipse 80% 70% at 50% 45%, rgba(11,171,166,0.14) 0%, rgba(20,35,33,0.9) 55%, #0F1F1D 100%)"
-                shadow="drop-shadow(0 24px 48px rgba(0,0,0,0.25)) drop-shadow(0 4px 16px rgba(11,171,166,0.1))" />
+                oval="radial-gradient(ellipse 80% 70% at 50% 45%, rgba(165,203,193,0.14) 0%, rgba(20,35,33,0.9) 55%, #0F1F1D 100%)"
+                shadow="drop-shadow(0 24px 48px rgba(0,0,0,0.25)) drop-shadow(0 4px 16px rgba(165,203,193,0.1))" />
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once:true, margin:"-60px" }}>
-              <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#0BABA6" }}>Feature 02 · Alkaline Balance</p>
+              <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#A5CBC1" }}>Feature 02 · Alkaline Balance</p>
               <h2 className="font-display m-0 mb-5 leading-tight" style={{ fontSize:"clamp(1.8rem,3.5vw,3rem)", fontWeight:700, color:"#fff", letterSpacing:"-0.02em" }}>
                 pH Optimised<br /><em className="font-normal" style={{ fontStyle:"italic" }}>for Your Body.</em>
               </h2>
@@ -75,7 +75,7 @@ export function FeatureGrid() {
               <div className="flex flex-wrap gap-2 sm:gap-2.5">
                 {["pH 7.5–9.5","Enhanced Absorption","Neutralises Acidity","Bone Health"].map(tag => (
                   <span key={tag} className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[12px] font-semibold"
-                    style={{ color:"#0BABA6", background:"rgba(11,171,166,0.10)", border:"1px solid rgba(11,171,166,0.16)" }}>{tag}</span>
+                    style={{ color:"#A5CBC1", background:"rgba(165,203,193,0.10)", border:"1px solid rgba(165,203,193,0.16)" }}>{tag}</span>
                 ))}
               </div>
             </motion.div>
@@ -84,11 +84,11 @@ export function FeatureGrid() {
       </div>
 
       {/* ── ROW 3: Smart LED ────────────────────────────────────── */}
-      <div style={{ background:"#FDFBF5", borderTop:"1px solid rgba(200,168,75,0.1)" }}>
+      <div style={{ background:"#FDFBF5", borderTop:"1px solid rgba(172,136,91,0.1)" }}>
         <div className="w-full max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once:true, margin:"-60px" }}>
-              <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#C8A84B" }}>Feature 03 · Smart LED · Elite Exclusive</p>
+              <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-4" style={{ color:"#AC885B" }}>Feature 03 · Smart LED · Elite Exclusive</p>
               <h2 className="font-display m-0 mb-5 leading-tight" style={{ fontSize:"clamp(1.8rem,3.5vw,3rem)", fontWeight:700, color:"#0C0F0D", letterSpacing:"-0.02em" }}>
                 Total Visibility,<br /><em className="font-normal" style={{ fontStyle:"italic" }}>Total Confidence.</em>
               </h2>
@@ -104,8 +104,8 @@ export function FeatureGrid() {
                   { l:"Auto-Sanitise",  d:"Self-cleaning UV cycle" },
                 ].map(item => (
                   <div key={item.l} className="rounded-xl p-3 sm:p-4"
-                    style={{ background:"rgba(200,168,75,0.07)", border:"1px solid rgba(200,168,75,0.14)" }}>
-                    <div className="text-[11px] sm:text-xs font-bold mb-1" style={{ color:"#C8A84B" }}>{item.l}</div>
+                    style={{ background:"rgba(172,136,91,0.07)", border:"1px solid rgba(172,136,91,0.14)" }}>
+                    <div className="text-[11px] sm:text-xs font-bold mb-1" style={{ color:"#AC885B" }}>{item.l}</div>
                     <div className="text-[10px] sm:text-[11px] leading-snug" style={{ color:"rgba(12,15,13,0.45)" }}>{item.d}</div>
                   </div>
                 ))}
@@ -113,8 +113,8 @@ export function FeatureGrid() {
             </motion.div>
             <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once:true, margin:"-60px" }}>
               <ProductPanel src="/assets/products/elite-removed.png" alt="Skyliqua Elite"
-                oval="radial-gradient(ellipse 80% 70% at 50% 45%, rgba(200,168,75,0.10) 0%, rgba(250,244,228,0.9) 55%, #F5EDD8 100%)"
-                shadow="drop-shadow(0 24px 48px rgba(0,0,0,0.10)) drop-shadow(0 4px 16px rgba(200,168,75,0.10))" />
+                oval="radial-gradient(ellipse 80% 70% at 50% 45%, rgba(172,136,91,0.10) 0%, rgba(250,244,228,0.9) 55%, #F5EDD8 100%)"
+                shadow="drop-shadow(0 24px 48px rgba(0,0,0,0.10)) drop-shadow(0 4px 16px rgba(172,136,91,0.10))" />
             </motion.div>
           </div>
         </div>

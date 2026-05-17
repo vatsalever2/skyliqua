@@ -17,154 +17,126 @@ export function HeroSection() {
   const imgY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <section ref={ref} className="flex flex-col overflow-hidden" style={{ height: "100dvh", paddingTop: "72px" }}>
+    <section ref={ref} className="relative flex flex-col items-center overflow-hidden bg-[#06100F]" style={{ minHeight: "100dvh", paddingTop: "72px" }}>
+      
+      {/* Cinematic Background Lighting */}
+      <div className="absolute top-0 right-0 w-[80%] h-[80%] pointer-events-none opacity-30" 
+        style={{ background: "radial-gradient(circle at 70% 30%, rgba(34,97,95,0.4) 0%, rgba(6,16,15,0) 60%)" }} />
+      <div className="absolute bottom-0 left-0 w-[60%] h-[60%] pointer-events-none opacity-20" 
+        style={{ background: "radial-gradient(circle at 30% 70%, rgba(172,136,91,0.15) 0%, rgba(6,16,15,0) 60%)" }} />
+      {/* Subtle Noise/Dot Texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-40" 
+        style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
-      {/* ── Main area ─────────────────────────────────────────── */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[46%_54%] min-h-0">
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full max-w-[1440px] flex-1 flex flex-col lg:flex-row items-center justify-between px-6 sm:px-10 md:px-14 lg:px-20 py-12 lg:py-0">
+        
+        {/* LEFT / TOP — Typography & CTAs */}
+        <div className="flex-1 w-full lg:max-w-[50%] flex flex-col justify-center mt-4 lg:mt-0">
+          <motion.div initial={{ opacity:0, x:-12 }} animate={{ opacity:1, x:0 }} transition={{ duration:0.6 }} className="mb-5 lg:mb-8">
+            <span className="text-[10px] lg:text-[11px] font-semibold uppercase tracking-[0.3em]" style={{ color:"#AC885B" }}>
+              Skyliqua · Puresense Technology
+            </span>
+          </motion.div>
 
-        {/* LEFT — dark panel (full on mobile, left on desktop) */}
-        <div className="relative flex flex-col justify-center overflow-hidden px-6 py-8 sm:px-10 md:px-14 lg:px-16"
-          style={{ background: "#0C0F0D" }}>
-          {/* Halos */}
-          <div className="absolute top-0 right-0 w-2/3 h-1/2 pointer-events-none opacity-20" style={{ background: "radial-gradient(ellipse at top right, rgba(11,171,166,0.15) 0%, transparent 65%)" }} />
-          <div className="absolute bottom-0 left-0 w-2/5 h-1/3 pointer-events-none opacity-20" style={{ background: "radial-gradient(ellipse at bottom left, rgba(11,171,166,0.08) 0%, transparent 65%)" }} />
-          {/* Dot texture */}
-          <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
-
-          {/* Mobile-only product image (sits inside dark panel) */}
-          <div className="lg:hidden relative flex-shrink-0 mx-auto w-52 h-44 sm:w-64 sm:h-56 mb-4">
-            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(11,171,166,0.22) 0%, transparent 65%)" }} />
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <Image src="/assets/products/elite-removed.png" alt="Skyliqua Elite" fill className="object-contain"
-                style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.15))" }}
-                sizes="256px" priority />
-            </motion.div>
-          </div>
-
-          {/* Text content */}
-          <div className="relative z-10">
-            {/* Eyebrow */}
-            <motion.div initial={{ opacity:0, x:-12 }} animate={{ opacity:1, x:0 }} transition={{ duration:0.55 }}
-              className="mb-5 lg:mb-8">
-              <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.26em]" style={{ color:"#0BABA6" }}>
-                Skyliqua · Puresense Technology
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <div className="mb-4 lg:mb-6">
-              <div className="overflow-hidden leading-none">
-                <motion.h1 initial={{ y:"110%" }} animate={{ y:0 }} transition={{ duration:1.0, ease:EASE }}
-                  className="font-display m-0"
-                  style={{ fontStyle:"italic", color:"#0BABA6", fontSize:"clamp(2.4rem,6.5vw,6rem)", lineHeight:1.02, letterSpacing:"-0.025em" }}>
-                  Water,
-                </motion.h1>
-              </div>
-              <div className="overflow-hidden leading-none">
-                <motion.h1 initial={{ y:"110%" }} animate={{ y:0 }} transition={{ duration:1.0, ease:EASE, delay:0.07 }}
-                  className="font-display m-0"
-                  style={{ color:"#FFFFFF", fontSize:"clamp(2.4rem,6.5vw,6rem)", lineHeight:1.05, letterSpacing:"-0.025em" }}>
-                  Reimagined.
-                </motion.h1>
-              </div>
+          <div className="mb-6 lg:mb-8">
+            <div className="overflow-hidden pb-4 -mb-4">
+              <motion.h1 initial={{ y:"110%" }} animate={{ y:0 }} transition={{ duration:1.0, ease:EASE }}
+                className="font-display m-0"
+                style={{ fontStyle:"italic", color:"#A5CBC1", fontSize:"clamp(3.5rem,7vw,7rem)", lineHeight:1.1, letterSpacing:"-0.02em" }}>
+                Water,
+              </motion.h1>
             </div>
-
-            {/* Rule */}
-            <motion.div initial={{ scaleX:0 }} animate={{ scaleX:1 }} transition={{ duration:0.8, delay:0.28, ease:"easeOut" }}
-              className="h-px mb-4 lg:mb-5" style={{ background:"rgba(255,255,255,0.08)", transformOrigin:"left" }} />
-
-            {/* Body */}
-            <motion.p initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.34 }}
-              className="text-sm lg:text-base leading-relaxed font-light max-w-xs sm:max-w-sm lg:max-w-[380px] mb-6 lg:mb-8"
-              style={{ color:"rgba(255,255,255,0.42)" }}>
-              Twelve stages of precision purification, copper-enriched and alkaline-balanced —
-              engineered for the family that demands the absolute best.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.42 }}
-              className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6 lg:mb-8">
-              <a href="#products"
-                className="inline-flex items-center gap-2 rounded-sm text-white font-semibold text-[13px] tracking-wide transition-all duration-200 hover:opacity-90 active:scale-95"
-                style={{ padding:"13px 26px", background:"#0BABA6" }}>
-                Explore Collection
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-              </a>
-              <a href="#puresense" className="text-[13px] font-medium tracking-wide"
-                style={{ color:"rgba(255,255,255,0.35)" }}>
-                How it works →
-              </a>
-            </motion.div>
-
-            {/* Stats — 2-col on mobile, 4-col on desktop */}
-            <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ duration:0.8, delay:0.58 }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-0 pt-5 lg:pt-5"
-              style={{ borderTop:"1px solid rgba(255,255,255,0.08)" }}>
-              {[
-                { v:"12",    l:"Purification Stages" },
-                { v:"10 L",  l:"Storage Capacity"    },
-                { v:"99.9%", l:"Bacteria Eliminated" },
-                { v:"∞",     l:"Lifetime Service"    },
-              ].map((s, i) => (
-                <div key={s.v} className={`${i>0 && "lg:border-l"} lg:pl-4 xl:pl-5`}
-                  style={{ borderColor:"rgba(255,255,255,0.07)" }}>
-                  <div className="font-display text-xl lg:text-2xl mb-1 leading-none" style={{ color:"#0BABA6" }}>{s.v}</div>
-                  <div className="text-[9px] lg:text-[10px] leading-snug" style={{ color:"rgba(255,255,255,0.28)", letterSpacing:"0.04em" }}>{s.l}</div>
-                </div>
-              ))}
-            </motion.div>
+            <div className="overflow-hidden pb-4 -mb-4">
+              <motion.h1 initial={{ y:"110%" }} animate={{ y:0 }} transition={{ duration:1.0, ease:EASE, delay:0.05 }}
+                className="font-display m-0"
+                style={{ color:"#FFFFFF", fontSize:"clamp(3.5rem,7vw,7rem)", lineHeight:1.1, letterSpacing:"-0.02em" }}>
+                Reimagined.
+              </motion.h1>
+            </div>
           </div>
+
+          <motion.div initial={{ scaleX:0 }} animate={{ scaleX:1 }} transition={{ duration:0.8, delay:0.3, ease:"easeOut" }}
+            className="h-px mb-6 lg:mb-8 w-16" style={{ background:"#AC885B", transformOrigin:"left" }} />
+
+          <motion.p initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.4 }}
+            className="text-base lg:text-lg leading-relaxed font-light max-w-[420px] mb-8 lg:mb-12"
+            style={{ color:"rgba(255,255,255,0.6)" }}>
+            Twelve stages of precision purification, copper-enriched and alkaline-balanced —
+            engineered for the family that demands the absolute best.
+          </motion.p>
+
+          <motion.div initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.5 }}
+            className="flex flex-wrap items-center gap-5 lg:gap-8 mb-12 lg:mb-0">
+            <a href="#products"
+              className="inline-flex items-center gap-3 rounded-sm font-semibold tracking-wide transition-all duration-300 hover:opacity-90 active:scale-95 group"
+              style={{ padding:"16px 32px", background:"#AC885B", color:"#06100F", fontSize:"13px" }}>
+              Explore Collection
+              <svg className="transition-transform group-hover:translate-x-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#puresense" className="text-[13px] font-semibold tracking-wide uppercase transition-colors hover:text-white"
+              style={{ color:"rgba(255,255,255,0.4)" }}>
+              How it works
+            </a>
+          </motion.div>
         </div>
 
-        {/* RIGHT — desktop-only product panel */}
-        <div className="hidden lg:block relative overflow-hidden" style={{ background:"#EEF1EF" }}>
-          <div className="absolute pointer-events-none" style={{ top:"50%", left:"50%", transform:"translate(-50%,-52%)", width:"75%", aspectRatio:"1", borderRadius:"50%", background:"radial-gradient(ellipse, rgba(11,171,166,0.13) 0%, rgba(220,240,238,0.35) 45%, transparent 72%)" }} />
-          <div className="absolute pointer-events-none" style={{ top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"72%", aspectRatio:"1", borderRadius:"50%", border:"1px solid rgba(11,171,166,0.11)" }} />
-          <div className="absolute pointer-events-none" style={{ top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"86%", aspectRatio:"1", borderRadius:"50%", border:"1px solid rgba(11,171,166,0.05)" }} />
-
-          <motion.div style={{ y:imgY }} className="absolute inset-[4%_8%] flex items-center justify-center">
-            <div className="absolute bottom-[5%] left-[15%] right-[15%] h-7 rounded-full pointer-events-none" style={{ background:"rgba(0,0,0,0.07)", filter:"blur(22px)" }} />
-            <motion.div initial={{ opacity:0, scale:0.92, y:20 }} animate={{ opacity:1, scale:1, y:0 }} transition={{ duration:1.1, delay:0.18, ease:"easeOut" }} className="relative w-full h-full">
-              <motion.div animate={{ y:[0,-18,0] }} transition={{ duration:5.5, repeat:Infinity, ease:"easeInOut", delay:1.2 }} 
-                whileHover={{ scale: 1.08 }}
+        {/* RIGHT / BOTTOM — Product Image */}
+        <div className="flex-1 w-full lg:h-full relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0 min-h-[350px] lg:min-h-0">
+          <motion.div style={{ y:imgY }} className="relative w-full max-w-[320px] lg:max-w-[480px] aspect-[4/5] lg:aspect-square flex items-center justify-center">
+            {/* Soft backdrop glow behind the product */}
+            <div className="absolute inset-0 rounded-full blur-[80px] opacity-25 pointer-events-none" style={{ background:"radial-gradient(circle, #A5CBC1 0%, transparent 70%)" }} />
+            
+            <motion.div initial={{ opacity:0, scale:0.92, y:20 }} animate={{ opacity:1, scale:1, y:0 }} transition={{ duration:1.2, delay:0.2, ease:"easeOut" }} className="relative w-full h-full">
+              <motion.div animate={{ y:[0,-20,0] }} transition={{ duration:6, repeat:Infinity, ease:"easeInOut" }}
                 className="absolute inset-0 cursor-pointer">
                 <Image src="/assets/products/elite-removed.png" alt="Skyliqua Elite Water Purifier"
-                  fill className="object-contain transition-transform duration-500 ease-out" priority
-                  style={{ filter:"drop-shadow(0 44px 88px rgba(0,0,0,0.16))" }}
-                  sizes="54vw" />
+                  fill className="object-contain transition-transform duration-700 ease-out hover:scale-105" priority
+                  style={{ filter:"drop-shadow(0 30px 60px rgba(0,0,0,0.4))" }}
+                  sizes="(max-width: 1024px) 320px, 480px" />
               </motion.div>
             </motion.div>
-          </motion.div>
 
-          <motion.div initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:1.2 }}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2.5 whitespace-nowrap"
-            style={{ background:"#ffffff", border:"1px solid rgba(0,0,0,0.05)", padding:"9px 20px 9px 13px", borderRadius:"4px" }}>
-            <div className="w-[7px] h-[7px] rounded-sm flex-shrink-0" style={{ background:"#0BABA6" }} />
-            <span className="text-[13px] font-semibold" style={{ color:"#0C0F0D" }}>Skyliqua Elite</span>
-            <span className="w-px h-3" style={{ background:"rgba(12,15,13,0.12)" }} />
-            <span className="text-[11px]" style={{ color:"rgba(12,15,13,0.38)" }}>Flagship · Puresense</span>
-          </motion.div>
-          <motion.div initial={{ opacity:0, x:10 }} animate={{ opacity:1, x:0 }} transition={{ duration:0.5, delay:1.0 }}
-            className="absolute top-5 right-5 text-[10px] font-bold tracking-[0.18em] uppercase"
-            style={{ padding:"6px 15px", borderRadius:"4px", background:"#ffffff", border:"1px solid rgba(200,168,75,0.3)", color:"#C8A84B" }}>
-            Premium
+            {/* Floating Tags (Desktop Only) */}
+            <motion.div initial={{ opacity:0, x:20 }} animate={{ opacity:1, x:0 }} transition={{ duration:0.6, delay:1.2 }}
+              className="hidden lg:flex absolute top-10 right-0 items-center gap-3 backdrop-blur-md"
+              style={{ background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", padding:"8px 16px", borderRadius:"100px" }}>
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background:"#AC885B" }} />
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">Premium Collection</span>
+            </motion.div>
           </motion.div>
         </div>
+
       </div>
 
-      {/* ── Marquee strip ─────────────────────────────────────── */}
-      <div className="flex-shrink-0 flex items-center overflow-hidden"
-        style={{ height:"44px", background:"#0A0D0C", borderTop:"1px solid rgba(255,255,255,0.05)" }}>
+      {/* Stats at bottom (Overlaid on the dark background) */}
+      <div className="relative z-20 w-full max-w-[1440px] px-6 sm:px-10 md:px-14 lg:px-20 pb-10 lg:pb-12">
+        <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8, delay:0.6 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 pt-8"
+          style={{ borderTop:"1px solid rgba(255,255,255,0.08)" }}>
+          {[
+            { v:"12",    l:"Purification Stages" },
+            { v:"10 L",  l:"Storage Capacity"    },
+            { v:"99.9%", l:"Bacteria Eliminated" },
+            { v:"∞",     l:"Lifetime Service"    },
+          ].map((s, i) => (
+            <div key={s.v} className={`${i>0 && "md:border-l"} md:pl-6`} style={{ borderColor:"rgba(255,255,255,0.05)" }}>
+              <div className="font-display text-3xl lg:text-4xl mb-2 leading-none" style={{ color:"#A5CBC1" }}>{s.v}</div>
+              <div className="text-[10px] lg:text-xs font-semibold tracking-[0.1em] uppercase" style={{ color:"rgba(255,255,255,0.4)" }}>{s.l}</div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Marquee strip - absolute bottom */}
+      <div className="w-full relative z-20 flex-shrink-0 flex items-center overflow-hidden"
+        style={{ height:"44px", background:"rgba(0,0,0,0.3)", borderTop:"1px solid rgba(255,255,255,0.04)", backdropFilter:"blur(10px)" }}>
         <div className="animate-marquee flex items-center" style={{ width:"max-content" }}>
           {STRIP.map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-4 px-6">
-              <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] uppercase whitespace-nowrap"
-                style={{ color:"rgba(255,255,255,0.28)" }}>{item}</span>
-              <span className="w-[3px] h-[3px] rounded-full flex-shrink-0" style={{ background:"#0BABA6" }} />
+            <span key={i} className="inline-flex items-center gap-6 px-8">
+              <span className="text-[10px] font-semibold tracking-[0.25em] uppercase whitespace-nowrap"
+                style={{ color:"rgba(255,255,255,0.3)" }}>{item}</span>
+              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background:"#AC885B" }} />
             </span>
           ))}
         </div>

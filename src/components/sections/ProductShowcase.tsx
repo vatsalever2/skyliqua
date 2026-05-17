@@ -10,8 +10,8 @@ const PRODUCTS = [
     id:"prime", label:"Prime", name:"Skyliqua Prime",
     tagline:"Pure essentials, beautifully delivered.",
     image:"/assets/products/prime-removed.png",
-    isElite:false, badge:"Best Value", accentColor:"#0BABA6",
-    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(11,171,166,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
+    isElite:false, badge:"Best Value", accentColor:"#22615F",
+    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(34,97,95,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
     features:["9-Stage Puresense Purification","Copper-Infused Chamber","10 L Insulated Storage Tank","RO Technology","TDS Controller Included","Sediment & Carbon Pre-Filters"],
     description:"The Prime delivers our core Puresense Technology in its most refined form. Copper-enriched and rigorously filtered — built for families who take health seriously.",
     specs:[{l:"Stages",v:"9"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"—"},{l:"LED",v:"—"}],
@@ -20,8 +20,8 @@ const PRODUCTS = [
     id:"zen", label:"Zen", name:"Skyliqua Zen",
     tagline:"Balance starts with every sip.",
     image:"/assets/products/zen-removed.png",
-    isElite:false, badge:"Most Popular", accentColor:"#0BABA6",
-    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(11,171,166,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
+    isElite:false, badge:"Most Popular", accentColor:"#22615F",
+    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(34,97,95,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
     features:["12-Stage Puresense Purification","Copper & Alkaline Dual Enrichment","10 L Premium Storage Tank","pH-Balancing Technology (7.5–9.5)","Mineral Retention Filter","RO + UV + UF + Alkaline Stack"],
     description:"The Zen adds alkaline pH balancing to our copper foundation — producing water that is cleaner, lighter, and tuned for daily wellbeing.",
     specs:[{l:"Stages",v:"12"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"✓"},{l:"LED",v:"—"}],
@@ -30,8 +30,8 @@ const PRODUCTS = [
     id:"elite", label:"Elite", name:"Skyliqua Elite",
     tagline:"The pinnacle. Nothing held back.",
     image:"/assets/products/elite-removed.png",
-    isElite:true, badge:"Premium", accentColor:"#C8A84B",
-    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(200,168,75,0.10) 0%, rgba(248,242,226,0.9) 55%, #F2EBD6 100%)",
+    isElite:true, badge:"Premium", accentColor:"#AC885B",
+    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(172,136,91,0.10) 0%, rgba(248,242,226,0.9) 55%, #F2EBD6 100%)",
     features:["12-Stage Advanced Purification","Copper & Alkaline Excellence","10 L Crystal-Clear Storage Tank","Smart LED Water Quality Display","Real-Time Purity Monitoring","Auto-Sanitisation Mode"],
     description:"The Elite unites every Skyliqua innovation — copper, alkaline, and Smart LED intelligence — in one impeccable form. For those who accept only the very best.",
     specs:[{l:"Stages",v:"12"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"✓"},{l:"LED",v:"✓"}],
@@ -47,8 +47,8 @@ export function ProductShowcase() {
   const p = PRODUCTS.find(x => x.id === activeId)!;
 
   return (
-    <section id="products" className="flex flex-col bg-white" style={{ minHeight:"100dvh" }}>
-
+    <section id="products" className="flex flex-col items-center justify-center py-10 sm:py-14" style={{ background:"#F8F7F4", minHeight:"100dvh" }}>
+      
       {/* Zoom Modal */}
       <AnimatePresence>
         {zoomedImage && (
@@ -73,117 +73,106 @@ export function ProductShowcase() {
         )}
       </AnimatePresence>
 
-      {/* Header */}
-      <div className="px-5 sm:px-8 lg:px-20 pt-10 sm:pt-12 lg:pt-14 flex-shrink-0">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-          <div>
-            <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-2" style={{ color:"#0BABA6" }}>Our Collection</p>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold m-0" style={{ color:"#0C0F0D", lineHeight:1.1, letterSpacing:"-0.02em" }}>
+      <div className="w-full max-w-[1200px] px-5 sm:px-8 lg:px-12 flex flex-col flex-1 min-h-0">
+        
+        {/* Header & Tabs (Side-by-side on desktop to save vertical space) */}
+        <div className="flex flex-col md:flex-row items-center justify-between mb-6 sm:mb-8 gap-5">
+          <div className="text-center md:text-left">
+            <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5" style={{ color:"#22615F" }}>Our Collection</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold m-0" style={{ color:"#0C0F0D", lineHeight:1.1, letterSpacing:"-0.02em" }}>
               Choose Your Purifier
             </h2>
           </div>
-          <p className="text-sm text-right hidden sm:block max-w-[220px] leading-relaxed font-light" style={{ color:"rgba(12,15,13,0.4)" }}>
-            Every model shares the same Puresense core.
-          </p>
+          
+          {/* Premium Segmented Control (Light Mode) */}
+          <div className="flex items-center p-1 rounded-full relative" style={{ background:"rgba(12,15,13,0.04)", border:"1px solid rgba(12,15,13,0.06)" }}>
+            {PRODUCTS.map(prod => (
+              <button key={prod.id} onClick={() => setActiveId(prod.id)}
+                className="relative px-6 sm:px-8 py-2.5 rounded-full text-[11px] sm:text-[12px] font-bold tracking-wide transition-colors"
+                style={{ color: activeId===prod.id ? "#FFFFFF" : "rgba(12,15,13,0.5)" }}>
+                {activeId === prod.id && (
+                  <motion.div layoutId="activeTab" className="absolute inset-0 rounded-full"
+                    style={{ background: prod.isElite ? "#AC885B" : "#22615F", boxShadow: "0 2px 10px rgba(0,0,0,0.15)" }}
+                    transition={{ type:"spring", duration:0.5 }} />
+                )}
+                <span className="relative z-10">{prod.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Tabs */}
-        <div className="flex gap-0 overflow-x-auto" style={{ borderBottom:"1px solid rgba(12,15,13,0.07)" }}>
-          {PRODUCTS.map(prod => (
-            <button key={prod.id} onClick={() => setActiveId(prod.id)}
-              className="flex-shrink-0 px-6 sm:px-8 py-3 text-[13px] font-semibold tracking-wide transition-all duration-200"
-              style={{
-                color: activeId===prod.id ? (prod.isElite?"#C8A84B":"#0BABA6") : "rgba(12,15,13,0.38)",
-                background:"transparent", border:"none",
-                borderBottom:`2px solid ${activeId===prod.id ? (prod.isElite?"#C8A84B":"#0BABA6") : "transparent"}`,
-                cursor:"pointer", marginBottom:"-1px",
-              }}>
-              {prod.label}
-            </button>
-          ))}
+        {/* Main Panel (Fills remaining height if necessary) */}
+        <div className="w-full flex flex-col flex-1 min-h-0 relative">
+          <AnimatePresence mode="wait">
+            <motion.div key={activeId}
+              initial={{ opacity:0, y:15 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-15 }}
+              transition={{ duration:0.35, ease:"easeOut" }}
+              className="absolute inset-0 w-full h-full bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-[rgba(12,15,13,0.03)] flex flex-col lg:flex-row">
+              
+              {/* Image Side */}
+              <div className="relative w-full lg:w-[45%] flex items-center justify-center p-6 sm:p-8 min-h-[280px] lg:min-h-0"
+                style={{ background: p.oval }}>
+                 <div className="absolute top-5 left-5 z-10 px-3 py-1.5 rounded-full text-[9px] font-bold tracking-[0.2em] uppercase bg-white shadow-sm"
+                  style={{ color:p.accentColor, border:`1px solid ${p.isElite?"rgba(172,136,91,0.2)":"rgba(34,97,95,0.2)"}` }}>
+                  {p.badge}
+                </div>
+                <motion.div animate={{ y:[0,-8,0] }} transition={{ duration:5, repeat:Infinity, ease:"easeInOut" }}
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setZoomedImage(p.image)}
+                  className="relative w-full max-w-[240px] aspect-[4/5] cursor-pointer group">
+                  <Image src={p.image} alt={p.name} fill className="object-contain transition-transform duration-500"
+                    style={{ filter:"drop-shadow(0 20px 40px rgba(12,15,13,0.08))" }}
+                    sizes="(max-width: 1024px) 90vw, 40vw" priority />
+                  {/* Zoom Icon Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white/90 backdrop-blur-md p-3.5 rounded-full shadow-lg border border-black/5">
+                      <ZoomIn size={22} color={p.accentColor} />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Content Side */}
+              <div className="w-full lg:w-[55%] p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-white h-full overflow-y-auto">
+                <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5" style={{ color:p.accentColor }}>{p.tagline}</p>
+                <h3 className="font-display font-bold mb-3" style={{ fontSize:"clamp(1.8rem,3vw,2.5rem)", color:"#0C0F0D", lineHeight:1.1, letterSpacing:"-0.02em" }}>
+                  {p.name}
+                </h3>
+                <p className="text-[13px] sm:text-[14px] leading-relaxed font-light mb-6" style={{ color:"rgba(12,15,13,0.6)" }}>{p.description}</p>
+
+                <motion.ul key={activeId+"fl"} variants={listV} initial="hidden" animate="show"
+                  className="space-y-2.5 mb-8 list-none m-0 p-0 flex-1 min-h-0">
+                  {p.features.map(f => (
+                    <motion.li key={f} variants={itemV} className="flex items-start gap-3">
+                      <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shadow-sm"
+                        style={{ background:p.isElite?"rgba(172,136,91,0.1)":"rgba(34,97,95,0.1)" }}>
+                        <Check size={10} strokeWidth={3} color={p.accentColor} />
+                      </span>
+                      <span className="text-[13px] leading-snug font-medium" style={{ color:"rgba(12,15,13,0.7)" }}>{f}</span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+
+                {/* Specs Grid */}
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-6">
+                  {p.specs.map(s => (
+                    <div key={s.l} className="text-center rounded-xl p-2.5"
+                      style={{ background:"#F8F7F4", border:"1px solid rgba(12,15,13,0.04)" }}>
+                      <div className="text-[13px] font-bold mb-0.5" style={{ color:p.accentColor }}>{s.v}</div>
+                      <div className="text-[8px] font-bold uppercase tracking-[0.1em]" style={{ color:"rgba(12,15,13,0.4)" }}>{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <a href={`?model=${p.id}#contact`}
+                  className="inline-flex items-center justify-center w-full sm:w-max px-8 py-3.5 rounded-full font-bold text-[12px] tracking-wide text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg active:scale-95"
+                  style={{ background:p.isElite?"#AC885B":"#22615F" }}>
+                  Enquire About {p.label}
+                </a>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
-      </div>
-
-      {/* Panel — flex-1 fills remaining space */}
-      <div className="flex-1 px-5 sm:px-8 lg:px-20 py-5 sm:py-6 flex flex-col min-h-0">
-        <AnimatePresence mode="wait">
-          <motion.div key={activeId}
-            initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:-12 }}
-            transition={{ duration:0.3, ease:"easeOut" }}
-            className="flex-1 flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-5 min-h-0">
-
-            {/* Image */}
-            <div className="relative rounded-sm overflow-hidden flex-shrink-0 h-64 sm:h-80 lg:h-auto lg:flex-1"
-              style={{ background:p.oval }}>
-              <div className="absolute top-3.5 right-3.5 z-10 px-3 py-1 rounded-sm text-[10px] font-bold tracking-[0.16em] uppercase"
-                style={{ background:p.isElite?"#ffffff":"#ffffff", color:p.accentColor, border:`1px solid ${p.isElite?"rgba(200,168,75,0.3)":"rgba(11,171,166,0.3)"}` }}>
-                {p.badge}
-              </div>
-              <div className="absolute bottom-[6%] left-[18%] right-[18%] h-5 rounded-full pointer-events-none"
-                style={{ background:"rgba(0,0,0,0.05)", filter:"blur(14px)", zIndex:1 }} />
-              <motion.div animate={{ y:[0,-12,0] }} transition={{ duration:4.5, repeat:Infinity, ease:"easeInOut" }}
-                whileHover={{ scale: 1.05 }}
-                onClick={() => setZoomedImage(p.image)}
-                className="absolute inset-[6%] z-10 cursor-pointer group">
-                <Image src={p.image} alt={p.name} fill className="object-contain transition-transform duration-500 ease-out"
-                  style={{ filter:"drop-shadow(0 18px 40px rgba(0,0,0,0.06))" }}
-                  sizes="(max-width: 1024px) 90vw, 50vw" />
-                
-                {/* Zoom Icon Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg">
-                    <ZoomIn size={24} color={p.accentColor} />
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Content */}
-            <div className="rounded-sm flex flex-col lg:overflow-hidden"
-              style={{ border:"1px solid rgba(12,15,13,0.07)", background:"#FAFAF8", padding:"24px sm:28px lg:36px" }}>
-              <div className="p-6 sm:p-7 lg:p-9 flex-1 flex flex-col min-h-0">
-                <div className="flex-1 min-h-0">
-                  <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-2" style={{ color:p.accentColor }}>{p.tagline}</p>
-                  <h3 className="font-display font-bold mb-3 leading-tight" style={{ fontSize:"clamp(1.5rem,2.5vw,2.2rem)", color:"#0C0F0D", letterSpacing:"-0.02em" }}>
-                    {p.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed font-light mb-5" style={{ color:"rgba(12,15,13,0.48)" }}>{p.description}</p>
-
-                  <motion.ul key={activeId+"fl"} variants={listV} initial="hidden" animate="show"
-                    className="space-y-2.5 mb-5 list-none m-0 p-0">
-                    {p.features.map(f => (
-                      <motion.li key={f} variants={itemV} className="flex items-start gap-2.5">
-                        <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-sm flex items-center justify-center"
-                          style={{ background:p.isElite?"rgba(200,168,75,0.12)":"rgba(11,171,166,0.1)" }}>
-                          <Check size={9} strokeWidth={3} color={p.accentColor} />
-                        </span>
-                        <span className="text-[13px] leading-snug" style={{ color:"rgba(12,15,13,0.62)" }}>{f}</span>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                </div>
-
-                {/* Specs + CTA */}
-                <div className="flex-shrink-0 pt-4" style={{ borderTop:"1px solid rgba(12,15,13,0.06)" }}>
-                  <div className="grid grid-cols-5 gap-2 mb-4">
-                    {p.specs.map(s => (
-                      <div key={s.l} className="text-center rounded-sm py-2.5"
-                        style={{ background:"rgba(12,15,13,0.03)", border:"1px solid rgba(12,15,13,0.05)" }}>
-                        <div className="text-sm font-bold mb-0.5" style={{ color:p.accentColor }}>{s.v}</div>
-                        <div className="text-[8.5px] uppercase tracking-wide" style={{ color:"rgba(12,15,13,0.35)" }}>{s.l}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <a href={`?model=${p.id}#contact`}
-                    className="flex items-center justify-center w-full py-4 rounded-sm font-semibold text-sm tracking-wide text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
-                    style={{ background:p.isElite?"#C8A84B":"#0BABA6" }}>
-                    Enquire About {p.label}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
       </div>
     </section>
   );
