@@ -7,7 +7,7 @@ import { Check, ZoomIn, X } from "lucide-react";
 
 const PRODUCTS = [
   {
-    id:"prime", label:"Prime", name:"Skyliqua Prime",
+    id:"prime", label:"Prime", name:"Skyliqua Prime", colorway:"Grey & Black",
     tagline:"Pure essentials, beautifully delivered.",
     image:"/assets/products/prime-removed.png",
     isElite:false, badge:"Best Value", accentColor:"#22615F",
@@ -17,7 +17,7 @@ const PRODUCTS = [
     specs:[{l:"Stages",v:"9"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"—"},{l:"LED",v:"—"}],
   },
   {
-    id:"zen", label:"Zen", name:"Skyliqua Zen",
+    id:"zen", label:"Zen", name:"Skyliqua Zen", colorway:"Black & Grey",
     tagline:"Balance starts with every sip.",
     image:"/assets/products/zen-removed.png",
     isElite:false, badge:"Most Popular", accentColor:"#22615F",
@@ -27,7 +27,7 @@ const PRODUCTS = [
     specs:[{l:"Stages",v:"12"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"✓"},{l:"LED",v:"—"}],
   },
   {
-    id:"elite", label:"Elite", name:"Skyliqua Elite",
+    id:"elite", label:"Elite", name:"Skyliqua Elite", colorway:"Marble White & Black Gold",
     tagline:"The pinnacle. Nothing held back.",
     image:"/assets/products/elite-removed.png",
     isElite:true, badge:"Premium", accentColor:"#AC885B",
@@ -135,9 +135,12 @@ export function ProductShowcase() {
               {/* Content Side */}
               <div className="w-full lg:w-[55%] p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-white lg:h-full lg:overflow-y-auto">
                 <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5" style={{ color:p.accentColor }}>{p.tagline}</p>
-                <h3 className="font-display font-bold mb-3" style={{ fontSize:"clamp(1.8rem,3vw,2.5rem)", color:"#0C0F0D", lineHeight:1.1, letterSpacing:"-0.02em" }}>
+                <h3 className="font-display font-bold mb-1" style={{ fontSize:"clamp(1.8rem,3vw,2.5rem)", color:"#0C0F0D", lineHeight:1.1, letterSpacing:"-0.02em" }}>
                   {p.name}
                 </h3>
+                <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase mb-4" style={{ color:"rgba(12,15,13,0.4)" }}>
+                  {p.colorway}
+                </p>
                 <p className="text-[13px] sm:text-[14px] leading-relaxed font-light mb-6" style={{ color:"rgba(12,15,13,0.6)" }}>{p.description}</p>
 
                 <motion.ul key={activeId+"fl"} variants={listV} initial="hidden" animate="show"

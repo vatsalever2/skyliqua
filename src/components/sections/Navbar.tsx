@@ -26,34 +26,34 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         padding: scrolled ? "12px 0" : "18px 0",
-        background: scrolled ? "rgba(8,19,18,0.96)" : "#06100F",
-        backdropFilter: scrolled ? "blur(18px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "1px solid transparent",
-        boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.2)" : "none",
+        background: scrolled ? "rgba(255,255,255,0.95)" : "transparent",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(4,29,26,0.05)" : "1px solid transparent",
+        boxShadow: scrolled ? "0 10px 30px rgba(4,29,26,0.03)" : "none",
       }}
     >
       <div className="w-full max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-16 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="relative flex-shrink-0 w-44 h-12">
-          <Image src="/assets/brand/skyliqua-logo-clean.png" alt="Skyliqua" fill className="object-contain object-left" priority />
+          <Image src="/assets/brand/skyliqua-logo-clean.png" alt="Skyliqua" fill className="object-contain object-left" priority style={{ filter: "brightness(0.1)" }} />
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {LINKS.map((l) => (
             <Link key={l.name} href={l.href}
-              className="text-[13px] font-medium tracking-wide transition-colors duration-200"
-              style={{ color: "rgba(255,255,255,0.65)" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#ffffff"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)"; }}
+              className="text-[13px] font-bold tracking-wide transition-colors duration-200"
+              style={{ color: "rgba(4,29,26,0.65)" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#041D1A"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "rgba(4,29,26,0.65)"; }}
             >
               {l.name}
             </Link>
           ))}
           <a href="#contact"
-            className="px-5 py-2.5 rounded-sm text-white text-[13px] font-semibold tracking-wide transition-all duration-200 hover:opacity-90 active:scale-95"
-            style={{ background: "#22615F" }}>
+            className="px-5 py-2.5 rounded-sm text-white text-[13px] font-bold tracking-wide transition-all duration-200 hover:opacity-90 active:scale-95 uppercase"
+            style={{ background: "#AC885B" }}>
             Get Yours Now
           </a>
         </nav>
@@ -64,9 +64,9 @@ export function Navbar() {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           aria-expanded={open}
-          style={{ background: open ? "rgba(255,255,255,0.05)" : "transparent" }}
+          style={{ background: open ? "rgba(4,29,26,0.05)" : "transparent" }}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#041D1A" strokeWidth="2" strokeLinecap="round">
             {open
               ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
               : <><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></>
@@ -84,22 +84,22 @@ export function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             className="md:hidden absolute top-full left-0 right-0 border-b"
-            style={{ background: "rgba(8,19,18,0.98)", backdropFilter: "blur(20px)", borderColor: "rgba(255,255,255,0.05)" }}
+            style={{ background: "rgba(255,255,255,0.98)", backdropFilter: "blur(20px)", borderColor: "rgba(4,29,26,0.05)" }}
           >
             <div className="px-5 py-4 flex flex-col gap-1">
               {LINKS.map((l) => (
                 <Link key={l.name} href={l.href} onClick={() => setOpen(false)}
-                  className="block px-4 py-3.5 text-[15px] font-medium rounded-sm transition-colors"
-                  style={{ color: "rgba(255,255,255,0.8)" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)"; }}
+                  className="block px-4 py-3.5 text-[15px] font-bold rounded-sm transition-colors"
+                  style={{ color: "rgba(4,29,26,0.8)" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(4,29,26,0.05)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                 >
                   {l.name}
                 </Link>
               ))}
                 <a href="#contact" onClick={() => setOpen(false)}
-                className="mt-2 w-full py-4 text-center rounded-sm text-white font-semibold text-[15px] tracking-wide"
-                style={{ background: "#22615F" }}>
+                className="mt-2 w-full py-4 text-center rounded-sm text-white font-bold text-[15px] tracking-wide uppercase"
+                style={{ background: "#AC885B" }}>
                 Get Yours Now
               </a>
             </div>
