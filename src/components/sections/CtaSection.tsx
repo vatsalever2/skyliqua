@@ -44,7 +44,7 @@ function CtaFormContent() {
           {/* Left Side: Copy */}
           <div style={{ flex: 1, position: "relative", overflow: "hidden" }} className="md:p-16 p-8">
             <Image 
-              src="/assets/hero_bg_desktop.png" 
+              src="/assets/bg-upsclaed.jpeg" 
               alt="Marble Texture" 
               fill 
               className="object-cover object-center opacity-80" 
@@ -56,7 +56,7 @@ function CtaFormContent() {
                 <img src="/assets/brand/skyliqua-logo-clean.png" alt="Skyliqua" style={{ height: "28px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.8 }} />
               </div>
               <h2 style={{ fontWeight: 600, color: "#ffffff", marginBottom: "24px", letterSpacing: "-0.02em", lineHeight: 1.1 }} className="text-3xl md:text-5xl">
-                Book Your Free <br/><span style={{ color: "#C8A97E" }}>Home Consultation</span>
+                Book Your Free <br/><span style={{ color: "#B68F54" }}>Home Consultation</span>
               </h2>
               <p style={{ color: "rgba(255,255,255,0.7)", marginBottom: "40px", lineHeight: 1.6 }} className="text-base md:text-lg">
                 Experience the Puresense difference in your own home. Our experts will test your water quality and recommend the perfect Skyliqua system.
@@ -69,8 +69,8 @@ function CtaFormContent() {
                   "No-Obligation Quotation"
                 ].map((item, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "center", gap: "16px", color: "rgba(255,255,255,0.85)" }} className="text-sm md:text-base">
-                    <div style={{ width: "24px", height: "24px", borderRadius: "4px", background: "rgba(200,169,126,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <div style={{ width: "24px", height: "24px", borderRadius: "4px", background: "rgba(182,143,84,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B68F54" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12"/>
                       </svg>
                     </div>
@@ -86,13 +86,32 @@ function CtaFormContent() {
             <h3 style={{ fontSize: "1.5rem", fontWeight: 600, color: "#0C0F0D", marginBottom: "32px" }}>
               Request a Callback
             </h3>
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              setIsSubmitting(true);
+              const form = e.currentTarget;
+              const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+              const phone = (form.elements.namedItem('phone') as HTMLInputElement).value;
+              const city = (form.elements.namedItem('city') as HTMLInputElement).value;
+              
+              let modelName = "Not sure yet / Need consultation";
+              if(selectedModel === "prime") modelName = "Skyliqua Prime";
+              if(selectedModel === "zen") modelName = "Skyliqua Zen";
+              if(selectedModel === "elite") modelName = "Skyliqua Elite";
+
+              const text = `Hi Skyliqua Team,%0A%0AI would like to request a free home consultation.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*City/Pincode:* ${city}%0A*Product of Interest:* ${modelName}%0A%0APlease call me back.`;
+              
+              setTimeout(() => {
+                setIsSubmitting(false);
+                window.open(`https://wa.me/919483548853?text=${text}`, '_blank');
+              }, 600);
+            }} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 <label htmlFor="name" style={{ fontSize: "0.875rem", fontWeight: 500, color: "rgba(12,15,13,0.7)" }}>Full Name</label>
                 <input
-                  type="text" id="name" required
+                  type="text" id="name" name="name" required
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#FAFAF8", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #12423F"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #14878E"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#FAFAF8"; }}
                   placeholder="Rahul Sharma"
                 />
@@ -101,9 +120,9 @@ function CtaFormContent() {
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 <label htmlFor="phone" style={{ fontSize: "0.875rem", fontWeight: 500, color: "rgba(12,15,13,0.7)" }}>Phone Number</label>
                 <input
-                  type="tel" id="phone" required
+                  type="tel" id="phone" name="phone" required
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#FAFAF8", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #12423F"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #14878E"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#FAFAF8"; }}
                   placeholder="+91 98765 43210"
                 />
@@ -112,9 +131,9 @@ function CtaFormContent() {
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 <label htmlFor="city" style={{ fontSize: "0.875rem", fontWeight: 500, color: "rgba(12,15,13,0.7)" }}>City / Pincode</label>
                 <input
-                  type="text" id="city" required
+                  type="text" id="city" name="city" required
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#FAFAF8", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #12423F"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #14878E"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#FAFAF8"; }}
                   placeholder="e.g. Mumbai"
                 />
@@ -123,9 +142,9 @@ function CtaFormContent() {
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 <label htmlFor="model" style={{ fontSize: "0.875rem", fontWeight: 500, color: "rgba(12,15,13,0.7)" }}>Product of Interest</label>
                 <select
-                  id="model" value={selectedModel} onChange={e => setSelectedModel(e.target.value)}
+                  id="model" name="model" value={selectedModel} onChange={e => setSelectedModel(e.target.value)}
                   style={{ width: "100%", padding: "14px 20px", borderRadius: "4px", border: "1px solid rgba(12,15,13,0.1)", background: "#FAFAF8", fontSize: "1rem", color: "#0C0F0D", outline: "none", transition: "all 0.2s ease", cursor: "pointer" }}
-                  onFocus={e => { e.currentTarget.style.border = "1px solid #12423F"; e.currentTarget.style.background = "#ffffff"; }}
+                  onFocus={e => { e.currentTarget.style.border = "1px solid #14878E"; e.currentTarget.style.background = "#ffffff"; }}
                   onBlur={e => { e.currentTarget.style.border = "1px solid rgba(12,15,13,0.1)"; e.currentTarget.style.background = "#FAFAF8"; }}
                 >
                   <option value="unspecified">Not sure yet / Need consultation</option>
@@ -133,21 +152,23 @@ function CtaFormContent() {
                   <option value="zen">Skyliqua Zen (Alkaline)</option>
                   <option value="elite">Skyliqua Elite (Smart LED)</option>
                 </select>
-                <div style={{ position: "absolute", right: "20px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}>
-                  {/* The select caret isn't strictly necessary with appearance:none if we add a custom svg, but we can keep it simple or remove appearance:none on Windows */}
-                </div>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
                 style={{
-                  width: "100%", padding: "16px", borderRadius: "4px", background: "#12423F", color: "#ffffff", fontSize: "1rem", fontWeight: 600, cursor: isSubmitting ? "not-allowed" : "pointer", border: "none", outline: "none", marginTop: "8px", transition: "all 0.2s ease", display: "flex", justifyContent: "center", alignItems: "center", gap: "10px"
+                  width: "100%", padding: "16px", borderRadius: "4px", 
+                  background: "linear-gradient(135deg, #0F6C72 0%, #14878E 40%, #42A6A2 100%)", 
+                  color: "#ffffff", fontSize: "1rem", fontWeight: 600, cursor: isSubmitting ? "not-allowed" : "pointer", 
+                  border: "none", outline: "none", marginTop: "8px", transition: "all 0.3s ease", display: "flex", 
+                  justifyContent: "center", alignItems: "center", gap: "10px",
+                  boxShadow: "0 8px 20px -6px rgba(20,135,142,0.4)"
                 }}
-                onMouseEnter={e => { if(!isSubmitting) { e.currentTarget.style.opacity = "0.9"; } }}
-                onMouseLeave={e => { if(!isSubmitting) { e.currentTarget.style.opacity = "1"; } }}
+                onMouseEnter={e => { if(!isSubmitting) { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 12px 24px -6px rgba(20,135,142,0.5)"; } }}
+                onMouseLeave={e => { if(!isSubmitting) { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 20px -6px rgba(20,135,142,0.4)"; } }}
               >
-                {isSubmitting ? "Submitting..." : "Submit Request"}
+                {isSubmitting ? "Redirecting..." : "Submit Request"}
                 {!isSubmitting && (
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>

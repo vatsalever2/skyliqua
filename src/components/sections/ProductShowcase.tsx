@@ -7,31 +7,40 @@ import { Check, ZoomIn, X } from "lucide-react";
 
 const PRODUCTS = [
   {
-    id:"prime", label:"Prime", name:"Skyliqua Prime", colorway:"Grey & Black",
+    id:"prime", label:"Prime", name:"Skyliqua Prime",
     tagline:"Pure essentials, beautifully delivered.",
-    image:"/assets/products/prime-removed.png",
-    isElite:false, badge:"Best Value", accentColor:"#12423F",
-    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(18,66,63,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
+    variants: [
+      { name: "Classic White", hex: "#F9FAFB", image: "/assets/products/prime-removed.png" },
+      { name: "Midnight Black", hex: "#1F2937", image: "/assets/products/prime-other.png" }
+    ],
+    isElite:false, badge:"Best Value", accentColor:"#14878E",
+    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(20,135,142,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
     features:["9-Stage Puresense Purification","Copper-Infused Chamber","10 L Insulated Storage Tank","RO Technology","TDS Controller Included","Sediment & Carbon Pre-Filters"],
     description:"The Prime delivers our core Puresense Technology in its most refined form. Copper-enriched and rigorously filtered — built for families who take health seriously.",
     specs:[{l:"Stages",v:"9"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"—"},{l:"LED",v:"—"}],
   },
   {
-    id:"zen", label:"Zen", name:"Skyliqua Zen", colorway:"Black & Grey",
+    id:"zen", label:"Zen", name:"Skyliqua Zen",
     tagline:"Balance starts with every sip.",
-    image:"/assets/products/zen-removed.png",
-    isElite:false, badge:"Most Popular", accentColor:"#12423F",
-    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(18,66,63,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
+    variants: [
+      { name: "Midnight Black", hex: "#1F2937", image: "/assets/products/zen-removed.png" },
+      { name: "Classic White", hex: "#F9FAFB", image: "/assets/products/zen-other.png" }
+    ],
+    isElite:false, badge:"Most Popular", accentColor:"#14878E",
+    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(20,135,142,0.09) 0%, rgba(226,244,242,0.9) 55%, #E8F3F2 100%)",
     features:["12-Stage Puresense Purification","Copper & Alkaline Dual Enrichment","10 L Premium Storage Tank","pH-Balancing Technology (7.5–9.5)","Mineral Retention Filter","RO + UV + UF + Alkaline Stack"],
     description:"The Zen adds alkaline pH balancing to our copper foundation — producing water that is cleaner, lighter, and tuned for daily wellbeing.",
     specs:[{l:"Stages",v:"12"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"✓"},{l:"LED",v:"—"}],
   },
   {
-    id:"elite", label:"Elite", name:"Skyliqua Elite", colorway:"Marble White & Black Gold",
+    id:"elite", label:"Elite", name:"Skyliqua Elite",
     tagline:"The pinnacle. Nothing held back.",
-    image:"/assets/products/elite-removed.png",
-    isElite:true, badge:"Premium", accentColor:"#C8A97E",
-    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(200,169,126,0.10) 0%, rgba(248,242,226,0.9) 55%, #F2EBD6 100%)",
+    variants: [
+      { name: "Marble White", hex: "#F9FAFB", image: "/assets/products/elite-removed.png" },
+      { name: "Black Gold", hex: "#111111", image: "/assets/products/elite-other.png" }
+    ],
+    isElite:true, badge:"Premium", accentColor:"#B68F54",
+    oval:"radial-gradient(ellipse 85% 80% at 50% 48%, rgba(182,143,84,0.10) 0%, rgba(248,242,226,0.9) 55%, #F2EBD6 100%)",
     features:["12-Stage Advanced Purification","Copper & Alkaline Excellence","10 L Crystal-Clear Storage Tank","Smart LED Water Quality Display","Real-Time Purity Monitoring","Auto-Sanitisation Mode"],
     description:"The Elite unites every Skyliqua innovation — copper, alkaline, and Smart LED intelligence — in one impeccable form. For those who accept only the very best.",
     specs:[{l:"Stages",v:"12"},{l:"Storage",v:"10 L"},{l:"Copper",v:"✓"},{l:"Alkaline",v:"✓"},{l:"LED",v:"✓"}],
@@ -43,8 +52,12 @@ const itemV: Variants = { hidden:{ opacity:0, x:-10 }, show:{ opacity:1, x:0, tr
 
 export function ProductShowcase() {
   const [activeId, setActiveId] = useState("prime");
+  const [selectedVariants, setSelectedVariants] = useState<Record<string, number>>({ prime: 0, zen: 0, elite: 0 });
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  
   const p = PRODUCTS.find(x => x.id === activeId)!;
+  const activeVariantIndex = selectedVariants[activeId] || 0;
+  const currentVariant = p.variants[activeVariantIndex];
 
   return (
     <section id="products" className="flex flex-col items-center justify-center py-10 sm:py-14" style={{ background:"#FAFAF8", minHeight:"100dvh" }}>
@@ -78,7 +91,7 @@ export function ProductShowcase() {
         {/* Header & Tabs (Side-by-side on desktop to save vertical space) */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-6 sm:mb-8 gap-5">
           <div className="text-center md:text-left">
-            <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5" style={{ color:"#12423F" }}>Our Collection</p>
+            <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5 text-grad-primary">Our Collection</p>
             <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight m-0" style={{ color:"#0C0F0D", lineHeight:1.1 }}>
               Choose Your Purifier
             </h2>
@@ -91,8 +104,8 @@ export function ProductShowcase() {
                 className="relative px-6 sm:px-8 py-2.5 rounded-full text-[11px] sm:text-[12px] font-bold tracking-wide transition-colors"
                 style={{ color: activeId===prod.id ? "#FFFFFF" : "rgba(12,15,13,0.5)" }}>
                 {activeId === prod.id && (
-                  <motion.div layoutId="activeTab" className="absolute inset-0 rounded-full"
-                    style={{ background: prod.isElite ? "#C8A97E" : "#12423F", boxShadow: "0 2px 10px rgba(0,0,0,0.15)" }}
+                  <motion.div layoutId="activeTab" className={`absolute inset-0 rounded-full ${prod.isElite ? 'bg-grad-gold' : 'bg-grad-primary'}`}
+                    style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.15)" }}
                     transition={{ type:"spring", duration:0.5 }} />
                 )}
                 <span className="relative z-10">{prod.label}</span>
@@ -113,19 +126,26 @@ export function ProductShowcase() {
               <div className="relative w-full lg:w-[45%] flex items-center justify-center p-6 sm:p-8 min-h-[280px] lg:min-h-0"
                 style={{ background: p.oval }}>
                  <div className="absolute top-5 left-5 z-10 px-3 py-1.5 rounded-full text-[9px] font-bold tracking-[0.2em] uppercase bg-white shadow-sm"
-                  style={{ color:p.accentColor, border:`1px solid ${p.isElite?"rgba(200,169,126,0.2)":"rgba(18,66,63,0.2)"}` }}>
+                  style={{ color:p.accentColor, border:`1px solid ${p.isElite?"rgba(182,143,84,0.2)":"rgba(20,135,142,0.2)"}` }}>
                   {p.badge}
                 </div>
                 <motion.div animate={{ y:[0,-8,0] }} transition={{ duration:5, repeat:Infinity, ease:"easeInOut" }}
                   whileHover={{ scale: 1.05 }}
-                  onClick={() => setZoomedImage(p.image)}
-                  className="relative w-full max-w-[240px] aspect-[4/5] cursor-pointer group">
-                  <Image src={p.image} alt={p.name} fill className="object-contain transition-transform duration-500"
-                    style={{ filter:"drop-shadow(0 20px 40px rgba(12,15,13,0.08))" }}
-                    sizes="(max-width: 1024px) 90vw, 40vw" priority />
+                  onClick={() => setZoomedImage(currentVariant.image)}
+                  className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] aspect-[4/5] cursor-pointer group">
+                  
+                  {/* Crossfade when variant changes */}
+                  <AnimatePresence mode="wait">
+                    <motion.div key={currentVariant.image} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0">
+                      <Image src={currentVariant.image} alt={p.name} fill className="object-contain"
+                        style={{ filter:"drop-shadow(0 20px 40px rgba(12,15,13,0.08))" }}
+                        sizes="(max-width: 1024px) 90vw, 40vw" priority />
+                    </motion.div>
+                  </AnimatePresence>
+
                   {/* Zoom Icon Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-white/90 backdrop-blur-md p-3.5 rounded-full shadow-lg border border-black/5">
+                    <div className="bg-white/90 backdrop-blur-md p-3.5 rounded-full shadow-lg border border-black/5 z-20">
                       <ZoomIn size={22} color={p.accentColor} />
                     </div>
                   </div>
@@ -134,13 +154,32 @@ export function ProductShowcase() {
 
               {/* Content Side */}
               <div className="w-full lg:w-[55%] p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-white lg:h-full lg:overflow-y-auto">
-                <p className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5" style={{ color:p.accentColor }}>{p.tagline}</p>
-                <h3 className="font-serif font-medium tracking-tight mb-1" style={{ fontSize:"clamp(1.8rem,3vw,2.5rem)", color:"#0C0F0D", lineHeight:1.1 }}>
+                <p className={`text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5 ${p.isElite ? 'text-grad-gold' : 'text-grad-primary'}`}>{p.tagline}</p>
+                <h3 className="font-serif font-medium tracking-tight mb-4" style={{ fontSize:"clamp(1.8rem,3vw,2.5rem)", color:"#0C0F0D", lineHeight:1.1 }}>
                   {p.name}
                 </h3>
-                <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase mb-4" style={{ color:"rgba(12,15,13,0.4)" }}>
-                  {p.colorway}
-                </p>
+                
+                {/* Color Variants Swatches */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex gap-2">
+                    {p.variants.map((v, i) => (
+                      <button key={v.name} onClick={() => setSelectedVariants(prev => ({...prev, [activeId]: i}))}
+                        className="w-5 h-5 rounded-full border shadow-sm transition-all hover:scale-110"
+                        style={{ 
+                          background: v.hex,
+                          borderColor: activeVariantIndex === i ? p.accentColor : 'rgba(0,0,0,0.1)',
+                          boxShadow: activeVariantIndex === i ? `0 0 0 1px white, 0 0 0 2px ${p.accentColor}` : 'none'
+                        }}
+                        title={v.name}
+                        aria-label={`Select ${v.name}`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase" style={{ color:"rgba(12,15,13,0.5)" }}>
+                    {currentVariant.name}
+                  </span>
+                </div>
+
                 <p className="text-[13px] sm:text-[14px] leading-relaxed font-light mb-6" style={{ color:"rgba(12,15,13,0.6)" }}>{p.description}</p>
 
                 <motion.ul key={activeId+"fl"} variants={listV} initial="hidden" animate="show"
@@ -148,7 +187,7 @@ export function ProductShowcase() {
                   {p.features.map(f => (
                     <motion.li key={f} variants={itemV} className="flex items-start gap-3">
                       <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shadow-sm"
-                        style={{ background:p.isElite?"rgba(200,169,126,0.1)":"rgba(18,66,63,0.1)" }}>
+                        style={{ background:p.isElite?"rgba(182,143,84,0.1)":"rgba(20,135,142,0.1)" }}>
                         <Check size={10} strokeWidth={3} color={p.accentColor} />
                       </span>
                       <span className="text-[13px] leading-snug font-medium" style={{ color:"rgba(12,15,13,0.7)" }}>{f}</span>
@@ -161,15 +200,22 @@ export function ProductShowcase() {
                   {p.specs.map(s => (
                     <div key={s.l} className="text-center rounded-xl p-2.5"
                       style={{ background:"#FAFAF8", border:"1px solid rgba(12,15,13,0.04)" }}>
-                      <div className="text-[13px] font-bold mb-0.5" style={{ color:p.accentColor }}>{s.v}</div>
+                      <div className={`text-[13px] font-bold mb-0.5 ${p.isElite ? 'text-grad-gold' : 'text-grad-primary'}`}>{s.v}</div>
                       <div className="text-[8px] font-bold uppercase tracking-[0.1em]" style={{ color:"rgba(12,15,13,0.4)" }}>{s.l}</div>
                     </div>
                   ))}
                 </div>
 
-                <a href={`?model=${p.id}#contact`}
-                  className="inline-flex items-center justify-center w-full sm:w-max px-8 py-3.5 rounded-full font-bold text-[12px] tracking-wide text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg active:scale-95"
-                  style={{ background:p.isElite?"#C8A97E":"#12423F" }}>
+                <a href={`?model=${p.id}&color=${currentVariant.name.replace(/\s+/g, '-').toLowerCase()}#contact`}
+                  className="inline-flex items-center justify-center w-full sm:w-max px-8 py-3.5 rounded-full font-bold text-[12px] tracking-wide text-white transition-all duration-300 active:scale-95"
+                  style={{ 
+                    background: p.isElite 
+                      ? "linear-gradient(135deg, #8E6B3E 0%, #B68F54 40%, #D4B886 100%)" 
+                      : "linear-gradient(135deg, #0F6C72 0%, #14878E 40%, #42A6A2 100%)",
+                    boxShadow: p.isElite ? "0 8px 20px -6px rgba(182,143,84,0.4)" : "0 8px 20px -6px rgba(20,135,142,0.4)"
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = p.isElite ? "0 12px 24px -6px rgba(182,143,84,0.5)" : "0 12px 24px -6px rgba(20,135,142,0.5)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = p.isElite ? "0 8px 20px -6px rgba(182,143,84,0.4)" : "0 8px 20px -6px rgba(20,135,142,0.4)"; }}>
                   Enquire About {p.label}
                 </a>
               </div>

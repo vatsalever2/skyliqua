@@ -44,14 +44,12 @@ export function Navbar() {
           {LINKS.map((l) => (
             <Link key={l.name} href={l.href}
               className="text-[11px] font-medium tracking-[0.2em] uppercase transition-all duration-300"
-              style={{ color: scrolled ? "rgba(17,17,17,0.7)" : "rgba(255,255,255,0.7)", textShadow: scrolled ? "none" : "0 2px 10px rgba(0,0,0,0.15)" }}
+              style={{ color: scrolled ? "#0C0F0D" : "rgba(12,15,13,0.7)", textShadow: "none" }}
               onMouseEnter={e => { 
-                (e.currentTarget as HTMLElement).style.color = scrolled ? "#111111" : "#FFFFFF"; 
-                (e.currentTarget as HTMLElement).style.textShadow = scrolled ? "none" : "0 0 12px rgba(255,255,255,0.8)";
+                (e.currentTarget as HTMLElement).style.color = "#14878E"; 
               }}
               onMouseLeave={e => { 
-                (e.currentTarget as HTMLElement).style.color = scrolled ? "rgba(17,17,17,0.7)" : "rgba(255,255,255,0.7)"; 
-                (e.currentTarget as HTMLElement).style.textShadow = scrolled ? "none" : "0 2px 10px rgba(0,0,0,0.15)";
+                (e.currentTarget as HTMLElement).style.color = scrolled ? "#0C0F0D" : "rgba(12,15,13,0.7)"; 
               }}
             >
               {l.name}
@@ -72,7 +70,7 @@ export function Navbar() {
           aria-expanded={open}
           style={{ background: open ? "rgba(255,255,255,0.05)" : "transparent" }}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0C0F0D" strokeWidth="2" strokeLinecap="round">
             {open
               ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
               : <><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></>
@@ -90,14 +88,14 @@ export function Navbar() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             className="md:hidden absolute top-full left-0 right-0 border-b"
-            style={{ background: "rgba(5,20,19,0.98)", backdropFilter: "blur(20px)", borderColor: "rgba(255,255,255,0.05)" }}
+            style={{ background: "rgba(255,255,255,0.98)", backdropFilter: "blur(20px)", borderColor: "rgba(0,0,0,0.05)" }}
           >
             <div className="px-5 py-4 flex flex-col gap-1">
               {LINKS.map((l) => (
                 <Link key={l.name} href={l.href} onClick={() => setOpen(false)}
                   className="block px-4 py-3.5 text-[15px] font-medium rounded-sm transition-colors"
-                  style={{ color: "rgba(255,255,255,0.8)" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)"; }}
+                  style={{ color: "#0C0F0D" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.03)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                 >
                   {l.name}
@@ -105,7 +103,7 @@ export function Navbar() {
               ))}
                 <a href="#contact" onClick={() => setOpen(false)}
                 className="mt-2 w-full py-4 text-center rounded-sm text-white font-bold text-[15px] tracking-wide uppercase"
-                style={{ background: "#C8A97E" }}>
+                style={{ background: "#14878E" }}>
                 Get Yours Now
               </a>
             </div>

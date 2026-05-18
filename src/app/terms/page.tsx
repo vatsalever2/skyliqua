@@ -133,9 +133,9 @@ export default function TermsPage() {
             </p>
             <div className="mt-4 p-4 rounded-lg" style={{ background: "rgba(11,171,166,0.05)" }}>
               <p className="font-semibold mb-2" style={{ color: "#0BABA6" }}>Skyliqua Customer Support</p>
-              <p>Email: support@skyliqua.com</p>
+              <p>Email: info@skyliqua.com</p>
               <p>Phone: +91 9483548853</p>
-              <p>Address: 123 Pure Water Avenue, Tech Park, City — 400001</p>
+              <p>Address: No.1, 18th Cross, 2nd Block, Akshaya Nagar, Shani Mahathma Temple Road, Ramamurthy Nagar, Bengaluru - 560 016, Karnataka, India</p>
             </div>
           </section>
         </div>

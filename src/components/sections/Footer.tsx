@@ -22,14 +22,12 @@ export function Footer() {
             </p>
             <div className="flex gap-2.5">
               {[
-                { label:"Facebook", fill:true, path:"M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" },
-                { label:"Instagram", fill:false, isInsta:true },
-                { label:"X (Twitter)", fill:true, path:"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" },
+                { label:"Instagram", href:"https://www.instagram.com/skyzone_enterprises777?igsh=emN1MnNoYXloZnZk", fill:false, isInsta:true },
               ].map(s => (
-                <a key={s.label} href="#" aria-label={s.label}
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
                   className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200"
                   style={{ background:"rgba(255,255,255,0.06)", color:"rgba(255,255,255,0.38)" }}
-                  onMouseEnter={e=>{ const el=e.currentTarget as HTMLElement; el.style.background="rgba(200,169,126,0.15)"; el.style.color="#C8A97E"; }}
+                  onMouseEnter={e=>{ const el=e.currentTarget as HTMLElement; el.style.background="rgba(182,143,84,0.15)"; el.style.color="#B68F54"; }}
                   onMouseLeave={e=>{ const el=e.currentTarget as HTMLElement; el.style.background="rgba(255,255,255,0.06)"; el.style.color="rgba(255,255,255,0.38)"; }}>
                   {s.isInsta
                     ? <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -47,7 +45,7 @@ export function Footer() {
               <Link key={item} href="#products"
                 className="block text-sm font-light mb-3.5 transition-colors duration-200"
                 style={{ color:"rgba(255,255,255,0.48)" }}
-                onMouseEnter={e=>{ (e.currentTarget as HTMLElement).style.color="#C8A97E"; }}
+                onMouseEnter={e=>{ (e.currentTarget as HTMLElement).style.color="#B68F54"; }}
                 onMouseLeave={e=>{ (e.currentTarget as HTMLElement).style.color="rgba(255,255,255,0.48)"; }}>
                 {item}
               </Link>
@@ -61,7 +59,7 @@ export function Footer() {
               <Link key={item} href="#puresense"
                 className="block text-sm font-light mb-3.5 transition-colors duration-200"
                 style={{ color:"rgba(255,255,255,0.48)" }}
-                onMouseEnter={e=>{ (e.currentTarget as HTMLElement).style.color="#C8A97E"; }}
+                onMouseEnter={e=>{ (e.currentTarget as HTMLElement).style.color="#B68F54"; }}
                 onMouseLeave={e=>{ (e.currentTarget as HTMLElement).style.color="rgba(255,255,255,0.48)"; }}>
                 {item}
               </Link>
@@ -73,11 +71,11 @@ export function Footer() {
             <div className="text-[10px] font-bold tracking-[0.22em] uppercase mb-5" style={{ color:"rgba(255,255,255,0.3)" }}>Contact</div>
             {[
               { icon:Phone, text:"+91 9483548853" },
-              { icon:Mail,  text:"support@skyliqua.com" },
-              { icon:MapPin,text:"123 Pure Water Avenue,\nTech Park, City — 400001" },
+              { icon:Mail,  text:"info@skyliqua.com" },
+              { icon:MapPin,text:"No.1, 18th Cross, 2nd Block, Akshaya Nagar,\nShani Mahathma Temple Road, Ramamurthy Nagar,\nBengaluru - 560 016, Karnataka, India" },
             ].map(({ icon:Icon, text }) => (
               <div key={text} className="flex items-start gap-3 mb-4">
-                <Icon size={14} className="flex-shrink-0 mt-0.5" style={{ color:"#C8A97E" }} />
+                <Icon size={14} className="flex-shrink-0 mt-0.5" style={{ color:"#B68F54" }} />
                 <span className="text-sm font-light leading-relaxed whitespace-pre-line" style={{ color:"rgba(255,255,255,0.42)" }}>{text}</span>
               </div>
             ))}
@@ -85,9 +83,9 @@ export function Footer() {
             <div className="mt-8">
               <div className="text-[10px] font-bold tracking-[0.22em] uppercase mb-3" style={{ color:"rgba(255,255,255,0.3)" }}>Additional Info</div>
               <p className="text-sm font-light mb-2" style={{ color:"rgba(255,255,255,0.42)" }}>
-                pH Information: <strong style={{ color: "#C8A97E" }}>7.5 to 8.5</strong>
+                pH Information: <strong style={{ color: "#B68F54" }}>7.5 to 8.5</strong>
               </p>
-              <p className="text-xs font-light leading-relaxed mt-3" style={{ color:"rgba(255,255,255,0.35)", paddingLeft: "10px", borderLeft: "2px solid #C8A97E" }}>
+              <p className="text-xs font-light leading-relaxed mt-3" style={{ color:"rgba(255,255,255,0.35)", paddingLeft: "10px", borderLeft: "2px solid #B68F54" }}>
                 We provide services as well. If you want to check your existing filter, <a href="#contact" className="underline hover:text-white transition-colors">connect with us</a>.
               </p>
             </div>
@@ -105,7 +103,7 @@ export function Footer() {
               <Link key={t.href} href={t.href}
                 className="text-xs font-light transition-colors duration-200"
                 style={{ color:"rgba(255,255,255,0.25)" }}
-                onMouseEnter={e=>{ (e.currentTarget as HTMLElement).style.color="#C8A97E"; }}
+                onMouseEnter={e=>{ (e.currentTarget as HTMLElement).style.color="#B68F54"; }}
                 onMouseLeave={e=>{ (e.currentTarget as HTMLElement).style.color="rgba(255,255,255,0.25)"; }}>
                 {t.label}
               </Link>

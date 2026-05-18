@@ -49,27 +49,27 @@ export function HeroSection() {
   const textY = useTransform(scrollYProgress, [0, 1], [0, 90]);
 
   return (
-    <section ref={ref} className="relative w-full overflow-hidden bg-[#051413]" style={{ minHeight: "100dvh" }}>
+    <section ref={ref} className="relative w-full overflow-hidden bg-[#FAFAF8]" style={{ minHeight: "100dvh" }}>
       
       {/* =========================================
           BACKGROUND: Cinematic Marble Canvas
           ========================================= */}
-      <motion.div style={{ y: bgY }} className="absolute inset-0 z-0 bg-[#051413]">
+      <motion.div style={{ y: bgY }} className="absolute inset-0 z-0 bg-[#FAFAF8]">
         {/* Desktop Canvas */}
         <Image 
-          src="/assets/hero_bg_desktop.png" 
+          src="/assets/bg-upsclaed.jpeg" 
           alt="Luxury Marble Canvas" 
           fill 
-          className="hidden md:block object-cover object-center scale-[1.02] saturate-[0.95] contrast-[1.05] brightness-[0.95]" 
+          className="hidden md:block object-cover object-center scale-[1.02]" 
           priority 
           quality={100} 
         />
         {/* Mobile Canvas */}
         <Image 
-          src="/assets/hero_bg_mobile.png" 
+          src="/assets/bg-upsclaed.jpeg" 
           alt="Luxury Marble Canvas" 
           fill 
-          className="block md:hidden object-cover object-center scale-[1.02] saturate-[0.95] contrast-[1.05] brightness-[0.95]" 
+          className="block md:hidden object-cover object-center scale-[1.02]" 
           priority 
           quality={100} 
         />
@@ -79,10 +79,10 @@ export function HeroSection() {
       </motion.div>
 
       {/* =========================================
-          MASK: Deep Cinematic Vignette & Blur
+          MASK: Bright Cinematic Vignette & Blur
           ========================================= */}
       {/* Refined Vignette to add depth without muddying */}
-      <div className="absolute inset-0 z-0 pointer-events-none mix-blend-multiply bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(5,20,19,0.5)_100%)]" />
+      <div className="absolute inset-0 z-0 pointer-events-none mix-blend-screen bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(250,250,248,0.4)_100%)]" />
       
       {/* Targeted cinematic blur for text readability (Desktop) */}
       <div 
@@ -128,16 +128,16 @@ export function HeroSection() {
             <div className="overflow-hidden mb-6">
               <motion.h1 initial={{ y:"110%" }} animate={{ y:0 }} transition={{ duration:1.2, ease:EASE, delay: 0.1 }}
                 className="font-serif m-0 font-medium tracking-tight leading-none"
-                style={{ color:"#031815", fontSize:"clamp(3.8rem, 6.5vw, 7rem)" }}>
+                style={{ color:"#111111", fontSize:"clamp(3.8rem, 6.5vw, 7rem)" }}>
                 Pure Water.<br/>
-                <span className="italic" style={{ color:"#C8A97E", fontWeight: 400 }}>Beautifully Refined.</span>
+                <span className="italic" style={{ color:"#B68F54", fontWeight: 400 }}>Beautifully Refined.</span>
               </motion.h1>
             </div>
 
             {/* Minimal Copy */}
             <motion.p initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8, delay: 0.3 }}
               className="text-base lg:text-lg tracking-wide mb-12 max-w-[420px] font-sans"
-              style={{ color:"rgba(3,24,21,0.65)", lineHeight: 1.6 }}>
+              style={{ color:"rgba(17,17,17,0.75)", lineHeight: 1.6 }}>
               A statement of absolute luxury for the modern home. Impeccable 12-stage purification wrapped in sculptural elegance.
             </motion.p>
 
@@ -160,7 +160,7 @@ export function HeroSection() {
           {/* Sculptural Lighting: Ambient Rim Glow */}
           <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ duration: 2, delay: 0.5 }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[400px] lg:w-[500px] lg:h-[600px] rounded-[100%] blur-[100px] lg:blur-[140px] pointer-events-none"
-            style={{ background: "radial-gradient(ellipse, rgba(255,255,255,0.4) 0%, rgba(200,169,126,0.15) 50%, rgba(200,169,126,0) 80%)" }}
+            style={{ background: "radial-gradient(ellipse, rgba(255,255,255,0.4) 0%, rgba(182,143,84,0.15) 50%, rgba(182,143,84,0) 80%)" }}
           />
 
           <motion.div style={{ y: productY }} className="relative z-10 w-full max-w-[400px] lg:max-w-[600px] aspect-[4/5] flex items-center justify-center">
@@ -210,7 +210,7 @@ export function HeroSection() {
                       setCurrentIndex(i);
                     }}
                     className="w-8 h-1 rounded-full transition-all duration-500 hover:opacity-80"
-                    style={{ background: i === currentIndex ? "#C8A97E" : "rgba(255,255,255,0.2)" }}
+                    style={{ background: i === currentIndex ? "#B68F54" : "rgba(255,255,255,0.2)" }}
                     aria-label={`Go to slide ${i + 1}`}
                   />
                 ))}
